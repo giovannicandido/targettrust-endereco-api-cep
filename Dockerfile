@@ -4,6 +4,12 @@ ENV PORT = "8080"
 
 RUN mkdir /app
 
-COPY ./target/endereco-api-cep-0.0.1-SNAPSHOT.jar /app
+RUN mkdir /build
+
+COPY . /build
+
+RUN cd /build && ./mvnw package && cp ./target/endereco-api-cep-0.0.1-SNAPSHOT.jar /app
+
+RUN rm -r /build
 
 CMD ["sh", "-c", "java -jar /app/endereco-api-cep-0.0.1-SNAPSHOT.jar --server.port=${PORT}"]
