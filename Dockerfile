@@ -8,7 +8,7 @@ RUN mkdir /build
 
 COPY . /build
 
-RUN cd /build && ./mvnw package && cp ./target/endereco-api-cep-0.0.1-SNAPSHOT.jar /app
+RUN cd /build && chmod +x ./mvnw && ./mvnw package && cp ./target/endereco-api-cep-0.0.1-SNAPSHOT.jar /app
 
 RUN rm -r /build
 
