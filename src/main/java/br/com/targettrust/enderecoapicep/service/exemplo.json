@@ -1,0 +1,13 @@
+{
+  "nome": "fulano",
+  "endereco": {
+    "rua": "Rua",
+    "bairro": "bairro"
+  }
+}
+
+{
+  "nome": "fulano",
+  "dataNascimento": "",
+  "enderecoId": 2
+}
