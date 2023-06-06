@@ -7,10 +7,7 @@ import br.com.targettrust.enderecoapicep.controller.mapper.PessoaMapper;
 import br.com.targettrust.enderecoapicep.model.Pessoa;
 import br.com.targettrust.enderecoapicep.service.PessoaService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,5 +41,10 @@ public class PessoaController {
     @GetMapping(path = "/pessoas-com-casas")
     public List<Pessoa> listarPessoasComCasas() {
         return pessoaService.listar();
+    }
+
+    @GetMapping("/pessoa/search")
+    public List<Pessoa> findByNome(@RequestParam String nome) {
+        return pessoaService.findByNome(nome);
     }
 }
