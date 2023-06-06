@@ -58,4 +58,8 @@ public class PessoaService {
         pessoaRepository.save(pessoa);
 
     }
+
+    public List<Pessoa> findByNome(String nome) {
+        return pessoaRepository.findByNomeIsLikeIgnoreCase("%" + nome + "%");
+    }
 }
